@@ -20,13 +20,13 @@ namespace LethalCompanyModTemplate
             var BepInExLogSource = BepInEx.Logging.Logger.CreateLogSource(modGUID); // creates a logger for the BepInEx console
             BepInExLogSource.LogMessage(modGUID + " LOADED SUCCESSFULLY"); // show the successful loading of the mod in the BepInEx console
 
-            harmony.PatchAll(typeof(yourMod)); // run the "yourMod" class as a plugin
+            harmony.PatchAll(typeof(secondMOD)); // run the "yourMod" class as a plugin
         }
     }
 
     [HarmonyPatch(typeof(LethalCompanyScriptName))] // selecting the Lethal Company script you want to mod
     [HarmonyPatch("Update")] // select during which Lethal Company void in the choosen script the mod will execute
-    class yourMod // This is your mod if you use this is the harmony.PatchAll() command
+    class secondMOD // This is your mod if you use this is the harmony.PatchAll() command
     {
         [HarmonyPostfix] // Postfix means execute the plugin after the Lethal Company script. Prefix means execute plugin before.
         static void Postfix(ref ReferenceType ___LethalCompanyVar) // refer to variables in the Lethal Company script to manipulate them. Example: (ref int ___health). Use the 3 underscores to refer.
